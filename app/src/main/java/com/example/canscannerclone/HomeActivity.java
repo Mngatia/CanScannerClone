@@ -1,5 +1,6 @@
 package com.example.canscannerclone;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -55,6 +56,18 @@ public class HomeActivity extends AppCompatActivity {
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
         startActivityForResult(cameraIntent,IMAGE_CAPTURE_CODE);
 
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==RESULT_OK)
+        {
+            Intent i =new Intent(HomeActivity.this,ScanActivity.class);
+            i.setData(imageUri);
+            startActivity(i);
+
+            //we send image url to next activity
+        }
     }
 }
