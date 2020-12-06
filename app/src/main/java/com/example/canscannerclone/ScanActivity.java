@@ -35,6 +35,8 @@ public class ScanActivity extends AppCompatActivity implements IUploadCallbacks 
     //ProgressBar dialog;
     ProgressDialog dialog;
 
+
+
     private IUploadApi getApiUpload()
     {
         return RetrofitClient.getClient().create(IUploadApi.class);
