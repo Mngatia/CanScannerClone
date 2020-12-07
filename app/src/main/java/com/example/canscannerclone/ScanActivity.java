@@ -29,7 +29,7 @@ import retrofit2.Response;
 public class ScanActivity extends AppCompatActivity implements IUploadCallbacks {
 
     //Initialize all services and give reference to ui elements
-    ImageView imageView,btnUpload;
+    ImageView imageView,btnUpload,Save,Cancel;
     IUploadApi mService;
     Uri selectedFileUri;
     //ProgressBar dialog;
@@ -51,8 +51,10 @@ public class ScanActivity extends AppCompatActivity implements IUploadCallbacks 
 
         mService = getApiUpload();
 
-        imageView = findViewById(R.id.image_view);
-        btnUpload = findViewById(R.id.button_upload);
+        imageView =(ImageView) findViewById(R.id.image_view);
+        btnUpload = (ImageView)findViewById(R.id.button_upload);
+        Save = (ImageView)findViewById(R.id.save);
+        Cancel = (ImageView)findViewById(R.id.cancel);
 
         Uri image_uri = getIntent().getData();
         imageView.setImageURI(image_uri);
