@@ -3,6 +3,8 @@ package com.example.canscannerclone;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +36,12 @@ public class ScanActivity extends AppCompatActivity implements IUploadCallbacks 
     Uri selectedFileUri;
     //ProgressBar dialog;
     ProgressDialog dialog;
+
+    public String Image_name="";
+
+
+    BitmapDrawable bitmapDrawable;
+    Bitmap bitmap;
 
 
 
