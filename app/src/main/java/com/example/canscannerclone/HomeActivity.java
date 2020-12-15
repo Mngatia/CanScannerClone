@@ -1,8 +1,5 @@
 package com.example.canscannerclone;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -11,11 +8,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,6 +55,16 @@ public class HomeActivity extends AppCompatActivity {
 
         obj_adapter = new PDFAdapter(getApplicationContext(),filelist);
         lv_pdf.setAdapter(obj_adapter);
+
+        //on click listener - for pdf to open
+        lv_pdf.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
+                Intent intent  = new Intent(getApplicationContext(),PdfActivity.class);
+                intent.putExtra("position",i);
+                startActivity(intent);
+            }
+        });
     }
 
     private ArrayList<File> getFile(File dir) {
